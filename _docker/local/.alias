@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# -------------------------------------------------------------------------------------------------- #
+#  docker
+# -------------------------------------------------------------------------------------------------- #
+alias app.dc="docker compose"
+alias app.up="app.dc up -d"
+alias app.down="app.dc down"
+alias app.restart="app.dc restart"
+alias app.stop="app.dc stop"
+alias app.start="app.dc start"
+alias app.logs="app.dc logs -f"
+alias app.exec="app.dc exec -it app"
+alias app.zsh="app.exec zsh"
+# -------------------------------------------------------------------------------------------------- #
+# php
+# -------------------------------------------------------------------------------------------------- #
+alias app.php="app.exec php"
+alias app.composer="app.exec composer"
+alias app.server="app.php -S 0.0.0.0:8000 src/main.php"
+# -------------------------------------------------------------------------------------------------- #
