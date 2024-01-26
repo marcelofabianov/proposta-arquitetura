@@ -7,6 +7,87 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 - Ports and Adapters
 - Clean Architecture
 
+```
+src/
+├── Domain
+│   ├── Core
+│   │   ├── Exceptions
+│   │   │   ├── DomainCoreException.php
+│   │   │   ├── DomainCoreValueObjectException.php
+│   │   │   ├── DomainEntityCoreException.php
+│   │   │   ├── Enums
+│   │   │   │   └── ExceptionCodeEnum.php
+│   │   │   └── Ports
+│   │   │       ├── DomainCoreEntityCoreExceptionInterface.php
+│   │   │       ├── DomainCoreExceptionInterface.php
+│   │   │       └── DomainCoreValueObjectExceptionInterface.php
+│   │   └── ValueObjects
+│   │       ├── Adapters
+│   │       │   └── UuidGenerateInterface.php
+│   │       ├── CreatedAt.php
+│   │       ├── DatetimeValueObjectInterface.php
+│   │       ├── DeletedAt.php
+│   │       ├── Email.php
+│   │       ├── InactivatedAt.php
+│   │       ├── Monetary.php
+│   │       ├── NullableValueObjectInterface.php
+│   │       ├── Password.php
+│   │       ├── Ports
+│   │       │   ├── CreatedAtInterface.php
+│   │       │   ├── DeletedAtInterface.php
+│   │       │   ├── EmailInterface.php
+│   │       │   ├── InactivatedAtInterface.php
+│   │       │   ├── MonetaryInterface.php
+│   │       │   ├── PasswordInterface.php
+│   │       │   ├── UpdatedAtInterface.php
+│   │       │   └── UuidInterface.php
+│   │       ├── UpdatedAt.php
+│   │       ├── Uuid.php
+│   │       └── ValueObjectInterface.php
+│   └── User
+│       ├── Entities
+│       │   ├── Ports
+│       │   │   └── UserEntityInterface.php
+│       │   └── User.php
+│       └── Exceptions
+│           ├── DomainUserEntityException.php
+│           └── Ports
+│               └── DomainUserEntityExceptionInterface.php
+├── main.php
+├── Shared
+│   └── Services
+│       ├── Ports
+│       │   └── UuidGenerateInterface.php
+│       └── UuidGenerate.php
+└── User
+    ├── Application
+    │   └── UseCases
+    │       └── RegisterUser
+    │           ├── Adapters
+    │           │   ├── RegisterUserRepositoryInterface.php
+    │           │   └── UserEntityInterface.php
+    │           ├── Ports
+    │           │   ├── RegisterUserDtoInterface.php
+    │           │   └── RegisterUserUseCaseInterface.php
+    │           ├── RegisterUserDto.php
+    │           └── RegisterUserUseCase.php
+    └── Infrastructure
+        ├── Command
+        ├── Http
+        │   └── Controllers
+        │       └── UsersController.php
+        ├── Persistence
+        │   ├── Ports
+        │   │   └── UserRepositoryInterface.php
+        │   └── UserRepository.php
+        ├── Queues
+        └── Resources
+            └── config
+                ├── routes.yaml
+                ├── service.yaml
+                └── User.orm.yml
+```
+
 ## Requisitos
 
 - Docker 24+
