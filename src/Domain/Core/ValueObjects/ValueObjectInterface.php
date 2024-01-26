@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Marcelofabianov\Ddd\Domain\Core\ValueObjects;
 
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\CreatedAtInterface;
-
-interface ValueObjectInterface extends CreatedAtInterface
+interface ValueObjectInterface
 {
+    public function __toString(): string;
 
+    public function toString(): string;
+
+    public function getValue(): mixed;
 }

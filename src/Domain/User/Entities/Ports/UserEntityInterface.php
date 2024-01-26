@@ -13,19 +13,6 @@ use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\UpdatedAtInterface;
 use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\UuidInterface;
 use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface as RegisterUserEntityAdapterInterface;
 
-/**
- * Interface UserEntitiyInterface
- *
- * @property UuidInterface $id
- * @property string $name
- * @property EmailInterface $email
- * @property PasswordInterface $password
- * @property CreatedAtInterface $createdAt
- * @property UpdatedAtInterface $updatedAt
- * @property DeletedAtInterface $deletedAt
- * @property InactivatedAtInterface $inactivatedAt
- *
- */
 interface UserEntityInterface extends RegisterUserEntityAdapterInterface
 {
     public function setId(UuidInterface $id): self;
