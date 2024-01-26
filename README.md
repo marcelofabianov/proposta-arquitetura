@@ -1,26 +1,13 @@
-# PHP 8.3
+# Proposta de arquitetura
 
-Ambiente docker para se trabalhar com PHP 8.3.
+Um pequeno projeto para apresentar uma proposta de arquitetura utilizando conceitos
 
-## Extensões
-
-Algumas extensões já estão instaladas, mas você pode adicionar mais no arquivo `_docker/php/Dockerfile`.
-
-- bcmath
-- intl
-- opcache
-- mbstring
-- soap
-- redis
-- apcu
-- xdebug
-- swoole
-- pgsql
-- pdo_pgsql
+- DDD
+- SOLID
+- Ports and Adapters
+- Clean Architecture
 
 ## Requisitos
-
-Recomendo ter em seu ambiente:
 
 - Docker 24+
 - Docker Compose 2.23+
