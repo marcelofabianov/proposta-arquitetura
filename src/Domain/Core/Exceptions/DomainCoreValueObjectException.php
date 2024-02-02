@@ -13,8 +13,7 @@ class DomainCoreValueObjectException extends DomainCoreException implements Doma
         string $valueObject,
         string $message = 'Value Object is invalid',
         ExceptionCodeEnum $code = ExceptionCodeEnum::INVALID_VALUE_OBJECT
-    ): DomainCoreValueObjectExceptionInterface
-    {
+    ): DomainCoreValueObjectExceptionInterface {
         return new self($message, $code->value);
     }
 }

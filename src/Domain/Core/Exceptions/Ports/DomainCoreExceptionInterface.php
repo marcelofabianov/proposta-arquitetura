@@ -8,5 +8,4 @@ use Throwable;
 
 interface DomainCoreExceptionInterface extends Throwable
 {
-
 }

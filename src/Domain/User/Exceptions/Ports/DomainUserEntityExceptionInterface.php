@@ -8,5 +8,4 @@ use Marcelofabianov\MyMoney\Domain\Core\Exceptions\Ports\DomainCoreEntityCoreExc
 
 interface DomainUserEntityExceptionInterface extends DomainCoreEntityCoreExceptionInterface
 {
-
 }

@@ -6,5 +6,4 @@ namespace Marcelofabianov\MyMoney\User\Infrastructure\Http\Controllers;
 
 final class UsersController
 {
-
 }

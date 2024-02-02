@@ -8,5 +8,4 @@ use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Adapters\UuidGenerateInterf
 
 interface UuidGenerateInterface extends UuidGenerateAdapterInterface
 {
-
 }

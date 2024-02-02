@@ -11,7 +11,6 @@ use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Ports\Registe
 
 final readonly class RegisterUserUseCase implements RegisterUserUseCaseInterface
 {
-
     public function __construct(
         private RegisterUserRepositoryInterface $registerUserRepository,
         private UserEntityInterface $user

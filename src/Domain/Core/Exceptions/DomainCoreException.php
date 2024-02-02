@@ -9,5 +9,4 @@ use Marcelofabianov\MyMoney\Domain\Core\Exceptions\Ports\DomainCoreExceptionInte
 
 class DomainCoreException extends Exception implements DomainCoreExceptionInterface
 {
-
 }

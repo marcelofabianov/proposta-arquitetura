@@ -8,5 +8,4 @@ use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\Regi
 
 interface UserRepositoryInterface extends RegisterUserRepositoryInterface
 {
-
 }

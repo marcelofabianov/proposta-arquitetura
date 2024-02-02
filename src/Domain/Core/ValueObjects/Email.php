@@ -65,7 +65,7 @@ final readonly class Email implements EmailInterface
      */
     public static function random(): EmailInterface
     {
-        $random = bin2hex(random_bytes(16)).'@email.com';
+        $random = bin2hex(random_bytes(16)) . '@email.com';
 
         return self::create($random);
     }

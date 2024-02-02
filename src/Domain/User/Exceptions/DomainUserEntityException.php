@@ -9,5 +9,4 @@ use Marcelofabianov\MyMoney\Domain\User\Exceptions\Ports\DomainUserEntityExcepti
 
 final class DomainUserEntityException extends DomainEntityCoreException implements DomainUserEntityExceptionInterface
 {
-
 }

@@ -14,6 +14,6 @@ final readonly class RegisterUserDto implements RegisterUserDtoInterface
         public string $name,
         public EmailInterface $email,
         public PasswordInterface $password
-    ){
+    ) {
     }
 }

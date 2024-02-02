@@ -13,8 +13,7 @@ class DomainEntityCoreException extends DomainCoreException implements DomainCor
         string $entity,
         string $message = 'Entity is invalid',
         ExceptionCodeEnum $code = ExceptionCodeEnum::INVALID_ENTITY
-    ): DomainCoreEntityCoreExceptionInterface
-    {
+    ): DomainCoreEntityCoreExceptionInterface {
         return new self($message, $code->value);
     }
 }

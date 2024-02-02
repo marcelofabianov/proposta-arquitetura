@@ -8,5 +8,4 @@ use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\ValueObjectInterface;
 
 interface PasswordInterface extends ValueObjectInterface
 {
-
 }
