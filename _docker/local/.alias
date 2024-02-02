@@ -19,3 +19,7 @@ alias app.php="app.exec php"
 alias app.composer="app.exec composer"
 alias app.server="app.php -S 0.0.0.0:8000 src/main.php"
 # -------------------------------------------------------------------------------------------------- #
+# lint
+# -------------------------------------------------------------------------------------------------- #
+alias app.check="app.php ./vendor/bin/psalm --show-info=true"
+alias app.lint="app.php ./vendor/bin/phpcbf --standard=PSR12 src tests"
