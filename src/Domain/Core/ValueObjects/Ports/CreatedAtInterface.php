@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports;
+namespace Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports;
 
 use DateTimeInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\DatetimeValueObjectInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\ValueObjectInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\DatetimeValueObjectInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\ValueObjectInterface;
 
 interface CreatedAtInterface extends DatetimeValueObjectInterface, ValueObjectInterface
 {

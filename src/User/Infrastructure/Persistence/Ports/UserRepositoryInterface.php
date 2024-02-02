@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\User\Infrastructure\Persistence\Ports;
+namespace Marcelofabianov\MyMoney\User\Infrastructure\Persistence\Ports;
 
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\RegisterUserRepositoryInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\RegisterUserRepositoryInterface;
 
 interface UserRepositoryInterface extends RegisterUserRepositoryInterface
 {

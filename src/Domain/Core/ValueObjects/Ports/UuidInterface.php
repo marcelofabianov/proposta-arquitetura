@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports;
+namespace Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports;
 
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Adapters\UuidGenerateInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\ValueObjectInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Adapters\UuidGenerateInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\ValueObjectInterface;
 
 interface UuidInterface extends ValueObjectInterface
 {

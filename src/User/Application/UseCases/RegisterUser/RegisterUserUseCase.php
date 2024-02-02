@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser;
+namespace Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser;
 
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\RegisterUserRepositoryInterface;
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface;
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Ports\RegisterUserDtoInterface;
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Ports\RegisterUserUseCaseInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\RegisterUserRepositoryInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Ports\RegisterUserDtoInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Ports\RegisterUserUseCaseInterface;
 
 final readonly class RegisterUserUseCase implements RegisterUserUseCaseInterface
 {

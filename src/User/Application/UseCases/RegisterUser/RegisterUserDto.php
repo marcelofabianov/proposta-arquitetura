@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser;
+namespace Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser;
 
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\EmailInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\PasswordInterface;
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Ports\RegisterUserDtoInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\EmailInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\PasswordInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Ports\RegisterUserDtoInterface;
 
 final readonly class RegisterUserDto implements RegisterUserDtoInterface
 {

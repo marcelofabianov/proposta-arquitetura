@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\Core\ValueObjects;
+namespace Marcelofabianov\MyMoney\Domain\Core\ValueObjects;
 
-use Marcelofabianov\Ddd\Domain\Core\Exceptions\DomainCoreValueObjectException;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Adapters\UuidGenerateInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\UuidInterface;
-use Marcelofabianov\Ddd\Domain\Core\Exceptions\Ports\DomainCoreValueObjectExceptionInterface;
+use Marcelofabianov\MyMoney\Domain\Core\Exceptions\DomainCoreValueObjectException;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Adapters\UuidGenerateInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\UuidInterface;
+use Marcelofabianov\MyMoney\Domain\Core\Exceptions\Ports\DomainCoreValueObjectExceptionInterface;
 
 final readonly class Uuid implements UuidInterface
 {

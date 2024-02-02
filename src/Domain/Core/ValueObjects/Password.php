@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\Core\ValueObjects;
+namespace Marcelofabianov\MyMoney\Domain\Core\ValueObjects;
 
 use Exception;
-use Marcelofabianov\Ddd\Domain\Core\Exceptions\DomainCoreValueObjectException;
-use Marcelofabianov\Ddd\Domain\Core\Exceptions\Ports\DomainCoreValueObjectExceptionInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\PasswordInterface;
+use Marcelofabianov\MyMoney\Domain\Core\Exceptions\DomainCoreValueObjectException;
+use Marcelofabianov\MyMoney\Domain\Core\Exceptions\Ports\DomainCoreValueObjectExceptionInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\PasswordInterface;
 
 final class Password implements PasswordInterface
 {

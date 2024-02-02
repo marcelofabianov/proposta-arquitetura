@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\Core\ValueObjects;
+namespace Marcelofabianov\MyMoney\Domain\Core\ValueObjects;
 
 interface NullableValueObjectInterface
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\User\Entities\Ports;
+namespace Marcelofabianov\MyMoney\Domain\User\Entities\Ports;
 
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\CreatedAtInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\DeletedAtInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\EmailInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\InactivatedAtInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\PasswordInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\UpdatedAtInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\UuidInterface;
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface as RegisterUserEntityAdapterInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\CreatedAtInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\DeletedAtInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\EmailInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\InactivatedAtInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\PasswordInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\UpdatedAtInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\UuidInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface as RegisterUserEntityAdapterInterface;
 
 interface UserEntityInterface extends RegisterUserEntityAdapterInterface
 {

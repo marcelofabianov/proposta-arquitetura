@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters;
+namespace Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters;
 
 interface RegisterUserRepositoryInterface
 {

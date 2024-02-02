@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Ports;
+namespace Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Ports;
 
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\RegisterUserRepositoryInterface;
-use Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\RegisterUserRepositoryInterface;
+use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface;
 
 interface RegisterUserUseCaseInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\User\Application\UseCases\RegisterUser\Ports;
+namespace Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Ports;
 
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\EmailInterface;
-use Marcelofabianov\Ddd\Domain\Core\ValueObjects\Ports\PasswordInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\EmailInterface;
+use Marcelofabianov\MyMoney\Domain\Core\ValueObjects\Ports\PasswordInterface;
 
 /**
  * @property-read string $name

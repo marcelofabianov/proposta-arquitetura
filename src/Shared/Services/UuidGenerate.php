@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Shared\Services;
+namespace Marcelofabianov\MyMoney\Shared\Services;
 
-use Marcelofabianov\Ddd\Shared\Services\Ports\UuidGenerateInterface;
+use Marcelofabianov\MyMoney\Shared\Services\Ports\UuidGenerateInterface;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
 final class UuidGenerate implements UuidGenerateInterface

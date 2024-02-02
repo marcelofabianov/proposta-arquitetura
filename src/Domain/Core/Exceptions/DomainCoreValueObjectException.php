@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Marcelofabianov\Ddd\Domain\Core\Exceptions;
+namespace Marcelofabianov\MyMoney\Domain\Core\Exceptions;
 
-use Marcelofabianov\Ddd\Domain\Core\Exceptions\Enums\ExceptionCodeEnum;
-use Marcelofabianov\Ddd\Domain\Core\Exceptions\Ports\DomainCoreValueObjectExceptionInterface;
+use Marcelofabianov\MyMoney\Domain\Core\Exceptions\Enums\ExceptionCodeEnum;
+use Marcelofabianov\MyMoney\Domain\Core\Exceptions\Ports\DomainCoreValueObjectExceptionInterface;
 
 class DomainCoreValueObjectException extends DomainCoreException implements DomainCoreValueObjectExceptionInterface
 {
