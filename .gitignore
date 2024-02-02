@@ -32,3 +32,6 @@ Desktop.ini
 /.zsh_history
 
 .alias
+.env
+.env.testing
+.env*
