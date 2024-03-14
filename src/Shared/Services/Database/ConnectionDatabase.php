@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Marcelofabianov\MyMoney\Shared\Services\Database;
 
 use Marcelofabianov\MyMoney\Shared\Services\Database\Ports\ConnectionDatabaseInterface;
+use Marcelofabianov\MyMoney\Shared\Services\Database\Ports\DatabaseAdapterConnectionInterface;
 use PDO;
 use PDOException;
 use RuntimeException;
@@ -15,14 +16,12 @@ final class ConnectionDatabase implements ConnectionDatabaseInterface
 
     private ?PDO $pdo;
 
-    private function __construct(string $dsn)
+    private DatabaseAdapterConnectionInterface $adapter;
+
+    private function __construct(PDO $pdo, DatabaseAdapterConnectionInterface $adapter)
     {
-        try {
-            $this->pdo = new PDO($dsn);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $exception) {
-            throw new RuntimeException('Error to connect to database.'. $exception->getMessage());
-        }
+        $this->pdo = $pdo;
+        $this->adapter = $adapter;
     }
 
     public function __clone()
@@ -64,10 +63,30 @@ final class ConnectionDatabase implements ConnectionDatabaseInterface
         return $stmt;
     }
 
-    public static function getInstance(string $dsn): ConnectionDatabaseInterface
+    public function insert(string $table, array $values): void
     {
+        $sql = $this->adapter->insert($table, $values);
+
+        $this->executeQuery($sql, $values);
+    }
+
+    public static function getInstance(
+        DatabaseAdapterConnectionInterface $adapter
+    ): ConnectionDatabaseInterface
+    {
+        try {
+            $pdo = new PDO(
+                $adapter->getDsn(),
+                $adapter->getUsername(),
+                $adapter->getPassword(),
+                $adapter->getOptions()
+            );
+        } catch (PDOException $exception) {
+            throw new RuntimeException('Error to connect to database.' . $exception->getMessage());
+        }
+
         if (self::$instance === null) {
-            self::$instance = new self($dsn);
+            self::$instance = new self($pdo, $adapter);
         }
 
         return self::$instance;

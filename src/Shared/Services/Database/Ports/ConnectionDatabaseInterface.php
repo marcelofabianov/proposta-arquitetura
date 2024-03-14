@@ -22,5 +22,7 @@ interface ConnectionDatabaseInterface
 
     public function executeQuery(string $query, array $params = []): bool;
 
-    public static function getInstance(string $dsn): ConnectionDatabaseInterface;
+    public static function getInstance(DatabaseAdapterConnectionInterface $adapter): ConnectionDatabaseInterface;
+
+    public function insert(string $table, array $values): void;
 }

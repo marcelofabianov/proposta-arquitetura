@@ -4,13 +4,19 @@ declare(strict_types=1);
 
 namespace Marcelofabianov\MyMoney\User\Infrastructure\Persistence;
 
-use Marcelofabianov\MyMoney\User\Application\UseCases\RegisterUser\Adapters\UserEntityInterface;
+use Marcelofabianov\MyMoney\Core\Infrastructure\Persistence\Repository;
+use Marcelofabianov\MyMoney\Domain\User\Entities\Ports\UserEntityInterface;
 use Marcelofabianov\MyMoney\User\Infrastructure\Persistence\Ports\UserRepositoryInterface;
 
-final class UserRepository implements UserRepositoryInterface
+final class UserRepository extends Repository implements UserRepositoryInterface
 {
-    public function registerUser(UserEntityInterface $user): UserEntityInterface
+    private const string TABLE = 'users';
+
+    public function save(UserEntityInterface $user): UserEntityInterface
     {
-        // TODO: Implement registerUser() method.
+        $this->getConnection()->insert(self::TABLE, $user->toArray());
+        $this->getConnection()->closeConnection();
+
+        return $user;
     }
 }
