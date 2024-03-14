@@ -9,8 +9,16 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 
 ```
 src/
+├── Core
+│   └── Infrastructure
+│       └── Persistence
+│           ├── Ports
+│           │   └── RepositoryInterface.php
+│           └── Repository.php
 ├── Domain
 │   ├── Core
+│   │   ├── CoreDtoInterface.php
+│   │   ├── CoreEntityInterface.php
 │   │   ├── Exceptions
 │   │   │   ├── DomainCoreException.php
 │   │   │   ├── DomainCoreValueObjectException.php
@@ -29,7 +37,6 @@ src/
 │   │       ├── DeletedAt.php
 │   │       ├── Email.php
 │   │       ├── InactivatedAt.php
-│   │       ├── Monetary.php
 │   │       ├── NullableValueObjectInterface.php
 │   │       ├── Password.php
 │   │       ├── Ports
@@ -37,7 +44,6 @@ src/
 │   │       │   ├── DeletedAtInterface.php
 │   │       │   ├── EmailInterface.php
 │   │       │   ├── InactivatedAtInterface.php
-│   │       │   ├── MonetaryInterface.php
 │   │       │   ├── PasswordInterface.php
 │   │       │   ├── UpdatedAtInterface.php
 │   │       │   └── UuidInterface.php
@@ -46,31 +52,36 @@ src/
 │   │       └── ValueObjectInterface.php
 │   └── User
 │       ├── Entities
+│       │   ├── CreateUserDto.php
 │       │   ├── Ports
+│       │   │   ├── CreateUserDtoInterface.php
 │       │   │   └── UserEntityInterface.php
 │       │   └── User.php
-│       └── Exceptions
-│           ├── DomainUserEntityException.php
-│           └── Ports
-│               └── DomainUserEntityExceptionInterface.php
+│       ├── Exceptions
+│       │   ├── DomainUserEntityException.php
+│       │   └── Ports
+│       │       └── DomainUserEntityExceptionInterface.php
+│       └── UseCases
+│           └── RegisterUser
+│               ├── Adapters
+│               │   └── RegisterUserRepositoryInterface.php
+│               ├── Ports
+│               │   └── RegisterUserUseCaseInterface.php
+│               └── RegisterUserUseCase.php
 ├── main.php
 ├── Shared
 │   └── Services
-│       ├── Ports
-│       │   └── UuidGenerateInterface.php
-│       └── UuidGenerate.php
+│       ├── Database
+│       │   ├── ConnectionDatabase.php
+│       │   ├── DatabaseAdapterPostgresConnection.php
+│       │   └── Ports
+│       │       ├── ConnectionDatabaseInterface.php
+│       │       └── DatabaseAdapterConnectionInterface.php
+│       └── Uuid
+│           ├── Ports
+│           │   └── UuidGenerateInterface.php
+│           └── UuidGenerate.php
 └── User
-    ├── Application
-    │   └── UseCases
-    │       └── RegisterUser
-    │           ├── Adapters
-    │           │   ├── RegisterUserRepositoryInterface.php
-    │           │   └── UserEntityInterface.php
-    │           ├── Ports
-    │           │   ├── RegisterUserDtoInterface.php
-    │           │   └── RegisterUserUseCaseInterface.php
-    │           ├── RegisterUserDto.php
-    │           └── RegisterUserUseCase.php
     └── Infrastructure
         ├── Command
         ├── Http
@@ -86,6 +97,7 @@ src/
                 ├── routes.yaml
                 ├── service.yaml
                 └── User.orm.yml
+
 ```
 
 ## Requisitos
