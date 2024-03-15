@@ -1,0 +1,44 @@
+{
+    "name": "marcelofabianov/pluto",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Marcelofabianov\\Pluto\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Marcelofabianov\\Pluto\\Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcelo Fabiaono",
+            "email": "marcelofabianov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ext-pdo": "*",
+        "ramsey/uuid": "^4.7"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "symfony/var-dumper": "^7.0",
+        "pyrech/composer-changelogs": "^2.1",
+        "pestphp/pest": "^2.33",
+        "pestphp/pest-plugin-stressless": "^2.2",
+        "pestphp/pest-plugin-type-coverage": "^2.8",
+        "pestphp/pest-plugin-watch": "^2.1",
+        "vimeo/psalm": "^5.21",
+        "orklah/psalm-strict-equality": "^2.1",
+        "squizlabs/php_codesniffer": "^3.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pyrech/composer-changelogs": true,
+            "pestphp/pest-plugin": true
+        }
+    }
+}
