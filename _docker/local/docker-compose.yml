@@ -14,14 +14,18 @@ services:
       - ./.zsh_history:/home/dev/.zsh_history
     ports:
       - "8000:8000"
+      - "9003:9003"
     networks:
       - app_network
     depends_on:
       - db
+    environment:
+      XDEBUG_CONFIG: "client_host=host.docker.internal client_port=9003"
+      PHP_IDE_CONFIG: "serverName=app"
 
   db:
     container_name: db
-    image: 'postgres:15-alpine'
+    image: 'postgres:16-alpine'
     ports:
       - '5551:5432'
     environment:
