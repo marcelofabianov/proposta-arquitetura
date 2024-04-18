@@ -4,20 +4,26 @@ declare(strict_types=1);
 
 namespace App\Core\ValueObject;
 
-use JsonException;
-
 trait ToStringJson
 {
+    /**
+     * @throws \JsonException
+     */
+    public function __toString(): string
+    {
+        return $this->toJson();
+    }
+
     public function toString(): string
     {
         return $this->__toString();
     }
 
     /**
-     * @throws JsonException
+     * @throws \JsonException
      */
     public function toJson(): string
     {
-        return json_encode($this->toString(), JSON_THROW_ON_ERROR);
+        return json_encode($this->toArray(), JSON_THROW_ON_ERROR);
     }
 }
