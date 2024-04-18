@@ -40,4 +40,4 @@ describe('Uuid', function () {
     test('Deve retornar o valor do UUID armazenado')
         ->expect('5991e854-3d16-4466-88f6-e2558bf1a82a')->toBe(Uuid::create('5991e854-3d16-4466-88f6-e2558bf1a82a')->getValue());
 })
-    ->group('Unit', 'Uuid', 'ValueObject');
+    ->group('Unit', 'Uuid', 'Core', 'ValueObject');

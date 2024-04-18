@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Core\Exceptions\ValueObjectException;
 use App\Core\ValueObject\Email;
 use App\Core\ValueObject\Interfaces\IEmail;
+
 use function Pest\Faker\fake;
 
 describe('Email', function () {
@@ -39,4 +40,4 @@ describe('Email', function () {
         ->and(Email::random()->getValue())->toBeString()
         ->and(Email::validate(Email::random()->getValue()))->toBeTrue();
 })
-    ->group('Email', 'ValueObject', 'Domain', 'Core', 'Unit');
+    ->group('Email', 'ValueObject', 'Core', 'Unit');
