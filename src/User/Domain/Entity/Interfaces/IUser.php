@@ -23,4 +23,6 @@ interface IUser extends IEntity
     public function getPassword(): IPassword;
 
     public function getAudit(): IAudit;
+
+    public function changePassword(IPassword $password): void;
 }

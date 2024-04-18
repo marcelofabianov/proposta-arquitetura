@@ -36,7 +36,8 @@
         "laravel/pint": "^1.14",
         "ergebnis/composer-normalize": "*",
         "captainhook/captainhook": "^5.22",
-        "pestphp/pest-plugin-faker": "^2.0"
+        "pestphp/pest-plugin-faker": "^2.0",
+        "mockery/mockery": "^1.6"
     },
     "config": {
         "allow-plugins": {

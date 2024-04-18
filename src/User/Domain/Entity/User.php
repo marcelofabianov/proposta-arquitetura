@@ -13,16 +13,16 @@ use App\Core\ValueObject\ToStringJson;
 use App\User\Domain\Entity\Interfaces\ICreateUserDto;
 use App\User\Domain\Entity\Interfaces\IUser;
 
-final readonly class User implements IUser
+final class User implements IUser
 {
     use ToStringJson;
 
     private function __construct(
-        private IUuid $id,
-        private string $name,
-        private IEmail $email,
+        private readonly IUuid $id,
+        private readonly string $name,
+        private readonly IEmail $email,
         private IPassword $password,
-        private IAudit $audit
+        private readonly IAudit $audit
     ) {
     }
 
@@ -60,6 +60,11 @@ final readonly class User implements IUser
     public function getAudit(): IAudit
     {
         return $this->audit;
+    }
+
+    public function changePassword(IPassword $password): void
+    {
+        $this->password = $password;
     }
 
     /**

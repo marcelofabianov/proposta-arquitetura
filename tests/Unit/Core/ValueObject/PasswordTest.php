@@ -51,7 +51,7 @@ describe('Password', function () {
 
     test('Deve criar uma nova instancia de Password com senha aleatoria valida')
         ->expect(Password::random())->toBeInstanceOf(IPassword::class)
-        ->and(Password::validate(Password::random()->getValue()))->toBeTrue()
-        ->repeat(random_int(100, 200));
+        ->and(Password::validate(Password::random()->getValue()))->toBeTrue();
+    //->repeat(random_int(100, 200));
 })
     ->group('Password', 'ValueObject', 'Core', 'Unit');

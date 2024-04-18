@@ -12,7 +12,7 @@ use App\User\Domain\Entity\User;
 
 use function Pest\Faker\fake;
 
-describe('', function () {
+describe('User', function () {
     test('Deve criar uma nova instancia', function () {
         $user = User::create(
             new CreateUserDto(
