@@ -4,12 +4,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Pluto\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pluto\\Test\\": "tests/"
+            "App\\Test\\": "tests/"
         }
     },
     "authors": [

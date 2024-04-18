@@ -22,7 +22,7 @@ src/
 1. Clone o repositório
 
 ```bash
-git git@github.com:marcelofabianov/docker-php8.3-fpm.git
+git git@github.com:marcelofabianov/proposta-arquitetura-02.git
 ```
 
 2. Preparando o ambiente
