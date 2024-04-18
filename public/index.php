@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__.'/../src/main.php';
 
-use function main;
-
-main();
+try {
+    main();
+} catch (Throwable $exception) {
+    echo $exception->getMessage();
+}
