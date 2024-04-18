@@ -24,13 +24,15 @@ Desktop.ini
 *.log
 *.log.*
 *.tmp
+*.sh
 
 .idea
 .vscode
+
 /.zshrc
 /.zsh_history
-
-.alias
-.env
-.env.testing
-.env*
+/.env
+/.env.testing
+/docker-compose.yml
+/.alias.sh
+!/_local/docker/app/.alias.sh

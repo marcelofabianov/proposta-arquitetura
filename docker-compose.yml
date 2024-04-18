@@ -3,9 +3,9 @@ version: '3.9'
 services:
   app:
     container_name: app
-    image: marcelofabianov/php8.3-fpm:latest
+    image: pluto/php8.3-fpm:latest
     build:
-      context: ./_docker/local/php
+      context: ./_local/docker/app
       dockerfile: Dockerfile
     restart: always
     volumes:
