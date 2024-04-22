@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Core\ValueObject\Interfaces;
 
-use App\Core\IDateTime;
 use App\Core\IValueObject;
 use DateTimeInterface;
 
