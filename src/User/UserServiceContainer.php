@@ -7,6 +7,8 @@ namespace App\User;
 use App\Core\Database\Interfaces\IConnection;
 use App\Core\IServiceContainer;
 use App\Core\Service\Interfaces\IPasswordHashService as ICorePasswordHashService;
+use App\User\Application\Interfaces\IUserService;
+use App\User\Application\UserService;
 use App\User\Domain\UseCase\CreateNewUser\CreateNewUserUseCase;
 use App\User\Domain\UseCase\CreateNewUser\Interfaces\ICreateNewUserUseCase;
 use App\User\Domain\UseCase\CreateNewUser\Interfaces\IPasswordHashService;
@@ -19,7 +21,9 @@ final class UserServiceContainer implements IServiceContainer
 {
     public function register(ContainerBuilder $builder): ContainerBuilder
     {
-        return $this->createNEwUserUseCase($builder);
+        $builder = $this->createNEwUserUseCase($builder);
+
+        return $this->userService($builder);
     }
 
     private function createNEwUserUseCase(ContainerBuilder $builder): ContainerBuilder
@@ -43,6 +47,19 @@ final class UserServiceContainer implements IServiceContainer
                 return new CreateNewUserUseCase(
                     $container->get(IUserRepository::class),
                     $container->get(IPasswordHashService::class)
+                );
+            },
+        ]);
+
+        return $builder;
+    }
+
+    private function userService(ContainerBuilder $builder): ContainerBuilder
+    {
+        $builder->addDefinitions([
+            IUserService::class => static function (ContainerInterface $container) {
+                return new UserService(
+                    $container->get(ICreateNewUserUseCase::class)
                 );
             },
         ]);

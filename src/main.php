@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Core\CoreServiceContainer;
-use App\User\Domain\UseCase\CreateNewUser\Interfaces\ICreateNewUserUseCase;
+use App\User\Application\Interfaces\IUserService;
 use App\User\UserServiceContainer;
 use DI\ContainerBuilder;
 
@@ -27,7 +27,7 @@ function main(): void
 
     $container = $containerBuilder->build();
 
-    $createNewUserUseCase = $container->get(ICreateNewUserUseCase::class);
+    $userService = $container->get(IUserService::class);
 
-    dd($createNewUserUseCase);
+    dd($userService);
 }
