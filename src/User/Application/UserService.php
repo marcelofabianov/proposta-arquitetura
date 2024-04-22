@@ -13,7 +13,8 @@ final readonly class UserService implements IUserService
 {
     public function __construct(
         private ICreateNewUserUseCase $createNewUser
-    ){}
+    ) {
+    }
 
     public function createNewUser(ICreateUserDto $dto): IUser
     {

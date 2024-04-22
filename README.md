@@ -9,6 +9,60 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 
 ```
 src/
+├── Core
+│ ├── CoreServiceContainer.php
+│ ├── Database
+│ │ ├── Connection.php
+│ │ ├── DatabaseConfig.php
+│ │ └── Interfaces
+│ │     ├── IConnection.php
+│ │     └── IDatabaseConfig.php
+│ ├── Entity
+│ │ ├── Audit.php
+│ │ └── Interfaces
+│ │     └── IAudit.php
+│ ├── Exceptions
+│ │ ├── CoreException.php
+│ │ ├── EntityException.php
+│ │ ├── Interfaces
+│ │ │ ├── ICoreException.php
+│ │ │ ├── IEntityException.php
+│ │ │ ├── IPasswordException.php
+│ │ │ └── IValueObjectException.php
+│ │ ├── PasswordException.php
+│ │ └── ValueObjectException.php
+│ ├── IDateTime.php
+│ ├── IDto.php
+│ ├── IEntity.php
+│ ├── INullable.php
+│ ├── IServiceContainer.php
+│ ├── IValueObject.php
+│ ├── Service
+│ │ ├── Interfaces
+│ │ │ └── IPasswordHashService.php
+│ │ └── PasswordHashService.php
+│ └── ValueObject
+│     ├── Interfaces
+│     │ └── IUuid.php
+│     └── Uuid.php
+├── main.php
+└── User
+    ├── Application
+    │ ├── Interfaces
+    │ │ └── IUserService.php
+    │ └── UserService.php
+    ├── Domain
+    │ ├── Entity
+    │ │ ├── Dto
+    │ │ ├── Interfaces
+    │ │ └── User.php
+    │ └── UseCase
+    │     └── CreateNewUser
+    ├── Infra
+    │ └── Database
+    │     ├── Interfaces
+    │     └── UserRepository.php
+    └── UserServiceContainer.php
 
 ```
 
