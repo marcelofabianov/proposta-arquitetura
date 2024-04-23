@@ -36,3 +36,4 @@ Desktop.ini
 /docker-compose.yml
 /.alias.sh
 !/_local/docker/app/.alias.sh
+!/_local/init.sh
