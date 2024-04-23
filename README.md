@@ -7,6 +7,21 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 - Ports and Adapters
 - Clean Architecture
 
+## Requisitos
+
+- [Docker 24+](https://www.docker.com/get-started/)
+- [git](https://git-scm.com/)
+
+## Tecnologias
+
+- php 8.3
+- composer
+- pestphp
+- laminas-db
+- php-di
+- psalm
+- captainhook
+
 ```
 src/
 ├── Core
