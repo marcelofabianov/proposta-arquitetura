@@ -19,16 +19,19 @@ final readonly class UserRepository implements IUserRepository
 
     public function create(IUser $user): void
     {
-        $this->connection->insert(self::TABLE)
-            ->values([
-                'id' => $user->getId()->toString(),
-                'name' => $user->getName(),
-                'email' => $user->getEmail()->toString(),
-                'password' => $user->getPassword()->toString(),
-                'created_at' => $user->getAudit()->getCreatedAt()->toString(),
-                'updated_at' => $user->getAudit()->getUpdatedAt()->toString(),
-                'deleted_at' => $user->getAudit()->getArchivedAt()?->toString(),
-                'archived_at' => $user->getAudit()->getArchivedAt()?->toString(),
-            ]);
+        $result = $this->connection->insert(self::TABLE, [
+            'id' => $user->getId()->toString(),
+            'name' => $user->getName(),
+            'email' => $user->getEmail()->toString(),
+            'password' => $user->getPassword()->toString(),
+            'created_at' => $user->getAudit()->getCreatedAt()->toString(),
+            'updated_at' => $user->getAudit()->getUpdatedAt()->toString(),
+            'deleted_at' => $user->getAudit()->getArchivedAt()?->toString(),
+            'archived_at' => $user->getAudit()->getArchivedAt()?->toString(),
+        ]);
+
+        if (!$result) {
+            throw new \RuntimeException('Failed to create user');
+        }
     }
 }
