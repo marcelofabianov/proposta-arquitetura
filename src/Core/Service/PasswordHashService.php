@@ -11,6 +11,6 @@ final class PasswordHashService implements IPasswordHashService
 {
     public function hash(IPassword $password): string
     {
-        return '';
+        return password_hash($password->getValue(), PASSWORD_DEFAULT);
     }
 }
