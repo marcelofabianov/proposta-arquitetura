@@ -15,8 +15,6 @@ final class Password implements IPassword
 
     private const int MIN_LENGTH = 8;
 
-    private const int MAX_LENGTH = 12;
-
     private static string $message;
 
     private function __construct(
@@ -91,7 +89,11 @@ final class Password implements IPassword
         $specialChars = '~!#$%^&*()-_./<>?/\\{}[]|:;';
 
         $loopRandom = random_int(2, 3);
-        $random = '';
+
+        $random = $lowercase[random_int(0, strlen($lowercase) - 1)];
+        $random .= $uppercase[random_int(0, strlen($uppercase) - 1)];
+        $random .= $numbers[random_int(0, strlen($numbers) - 1)];
+        $random .= $specialChars[random_int(0, strlen($specialChars) - 1)];
 
         for ($i = 0; $i <= $loopRandom; $i++) {
             $random .= $lowercase[random_int(0, strlen($lowercase) - 1)];
@@ -106,12 +108,8 @@ final class Password implements IPassword
     /**
      * @throws IPasswordException
      */
-    public static function create(string|IPassword $value): IPassword
+    public static function create(string $value): IPassword
     {
-        if ($value instanceof IPassword) {
-            return $value;
-        }
-
         if (! self::validate($value)) {
             throw PasswordException::badPassword(self::$message);
         }
