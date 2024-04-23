@@ -23,7 +23,7 @@ services:
 
   db:
     container_name: db
-    image: 'postgres:16-alpine'
+    image: 'postgres:15-alpine'
     ports:
       - '5551:5432'
     environment:
