@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Core;
 
 use App\Core\Database\Connection;
-use App\Core\Database\DatabaseConfig;
+use App\Core\Database\Postgres;
 use App\Core\Database\Interfaces\IConnection;
 use App\Core\Database\Interfaces\IDatabaseConfig;
 use App\Core\Service\Interfaces\IPasswordHashService;
@@ -37,13 +37,13 @@ final class CoreServiceContainer implements IServiceContainer
     {
         $builder->addDefinitions([
             IDatabaseConfig::class => function () {
-                return DatabaseConfig::fromEnv();
+                return Postgres::fromEnv();
             },
         ]);
 
         $builder->addDefinitions([
             IConnection::class => function () {
-                $config = DatabaseConfig::fromEnv();
+                $config = Postgres::fromEnv();
 
                 return new Connection(new Adapter($config->toArray()));
             },
