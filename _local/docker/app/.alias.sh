@@ -18,6 +18,8 @@ alias app.zsh="app.exec zsh"
 alias app.php="app.exec php"
 alias app.composer="app.exec composer"
 alias app.server="app.php -S 0.0.0.0:8000 public/index.php"
+alias app.migrate="app.composer run migration:up"
+alias app.migrate:down="app.composer run migration:down"
 # -------------------------------------------------------------------------------------------------- #
 # lint
 # -------------------------------------------------------------------------------------------------- #

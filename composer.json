@@ -55,6 +55,8 @@
         "test": "./vendor/bin/pest",
         "test:coverage": "./vendor/bin/pest --coverage",
         "test:watch": "./vendor/bin/pest --watch",
+        "migration:up": "php db/migrations/up.php",
+        "migration:down": "php db/migrations/down.php",
         "post-autoload-dump": [
             "vendor/bin/captainhook install -f -s"
         ]

@@ -4,18 +4,15 @@ declare(strict_types=1);
 
 namespace Db\migrations;
 
-use App\Core\Database\Postgres;
+use App\Core\Database\Connection;
 use Dotenv\Dotenv;
-use Laminas\Db\Adapter\Adapter;
 
 require __DIR__.'/../../vendor/autoload.php';
 
 $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2));
 $dotenv->load();
 
-$config = Postgres::fromEnv();
-
-$adapter = new Adapter($config->toArray());
+$adapter = (new Connection())->getAdapter();
 
 $files = glob(__DIR__.'/ddl/*.php');
 

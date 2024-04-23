@@ -36,16 +36,8 @@ final class CoreServiceContainer implements IServiceContainer
     private function database(ContainerBuilder $builder): ContainerBuilder
     {
         $builder->addDefinitions([
-            IDatabaseConfig::class => function () {
-                return Postgres::fromEnv();
-            },
-        ]);
-
-        $builder->addDefinitions([
             IConnection::class => function () {
-                $config = Postgres::fromEnv();
-
-                return new Connection(new Adapter($config->toArray()));
+                return new Connection();
             },
         ]);
 

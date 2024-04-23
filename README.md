@@ -139,3 +139,13 @@ Executando server php http
 ```bash
 app.server
 ```
+Executando migrations
+```bash
+app.migrate
+```
+
+Executando down migrations
+
+```bash
+app.migrate:down
+```

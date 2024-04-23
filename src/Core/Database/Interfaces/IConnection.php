@@ -8,7 +8,7 @@ use Laminas\Db\Adapter\AdapterInterface;
 
 interface IConnection
 {
-    public function __construct(AdapterInterface $adapter);
+    public function __construct();
 
     public function getAdapter(): AdapterInterface;
 }
