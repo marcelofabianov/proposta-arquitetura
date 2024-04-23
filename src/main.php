@@ -54,5 +54,5 @@ function main(): void
     $userService = $container->get(IUserService::class);
     $user = $userService->createNewUser($dto);
 
-    dd($user);
+    dd($user->toArray());
 }

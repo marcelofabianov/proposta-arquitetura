@@ -16,5 +16,5 @@ interface IPassword extends IValueObject
 
     public static function random(): self;
 
-    public static function create(string|self $value): self;
+    public static function create(string $value): self;
 }

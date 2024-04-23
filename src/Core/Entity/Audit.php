@@ -35,8 +35,8 @@ final readonly class Audit implements IAudit
             'userId' => $this->userId?->toString(),
             'createdAt' => $this->createdAt->toString(),
             'updatedAt' => $this->updatedAt->toString(),
-            'archivedAt' => $this->archivedAt->toString(),
-            'deletedAt' => $this->deletedAt->toString(),
+            'archivedAt' => $this->archivedAt->getValue(),
+            'deletedAt' => $this->deletedAt->getValue(),
         ];
     }
 
