@@ -15,7 +15,7 @@ final class Password implements IPassword
 
     private const int MIN_LENGTH = 8;
 
-    private const int MAX_LENGTH = 24;
+    private const int MAX_LENGTH = 12;
 
     private static string $message;
 
@@ -41,7 +41,7 @@ final class Password implements IPassword
 
     public static function validate(string $value): bool
     {
-        if (str_contains($value, ' ')) {
+        if (str_contains($value, ' ') || $value === '') {
             self::$message = 'Password cannot contain spaces';
 
             return false;
@@ -85,40 +85,19 @@ final class Password implements IPassword
      */
     public static function random(): IPassword
     {
-        $random = '';
-
-        // Define os conjuntos de caracteres
         $lowercase = 'abcdefghijklmnopqrstuvwxyz';
         $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $numbers = '0123456789';
         $specialChars = '~!#$%^&*()-_./<>?/\\{}[]|:;';
 
-        $random .= $lowercase[random_int(0, strlen($lowercase) - 1)];
-        $random .= $uppercase[random_int(0, strlen($uppercase) - 1)];
-        $random .= $numbers[random_int(0, strlen($numbers) - 1)];
-        $random .= $specialChars[random_int(0, strlen($specialChars) - 1)];
+        $loopRandom = random_int(2, 3);
+        $random = '';
 
-        $remainingLength = random_int(4, 11);
-        $randomLength = strlen($random);
-
-        while ($randomLength < 8 || ($randomLength < 15 && $remainingLength > 0)) {
-            $charSet = random_int(0, 2);
-            switch ($charSet) {
-                case 0:
-                    $random .= $lowercase[random_int(0, strlen($lowercase) - 1)];
-                    break;
-                case 1:
-                    $random .= $uppercase[random_int(0, strlen($uppercase) - 1)];
-                    break;
-                case 2:
-                    $random .= $numbers[random_int(0, strlen($numbers) - 1)];
-                    break;
-                case 3:
-                    $random .= $specialChars[random_int(0, strlen($specialChars) - 1)];
-                    break;
-            }
-            $randomLength++;
-            $remainingLength--;
+        for ($i = 0; $i <= $loopRandom; $i++) {
+            $random .= $lowercase[random_int(0, strlen($lowercase) - 1)];
+            $random .= $uppercase[random_int(0, strlen($uppercase) - 1)];
+            $random .= $numbers[random_int(0, strlen($numbers) - 1)];
+            $random .= $specialChars[random_int(0, strlen($specialChars) - 1)];
         }
 
         return self::create($random);

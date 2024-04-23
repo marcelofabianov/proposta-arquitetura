@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace App\Core;
 
 use App\Core\Database\Connection;
-use App\Core\Database\Postgres;
 use App\Core\Database\Interfaces\IConnection;
-use App\Core\Database\Interfaces\IDatabaseConfig;
 use App\Core\Service\Interfaces\IPasswordHashService;
 use App\Core\Service\PasswordHashService;
 use DI\ContainerBuilder;
-use Laminas\Db\Adapter\Adapter;
 
 final class CoreServiceContainer implements IServiceContainer
 {

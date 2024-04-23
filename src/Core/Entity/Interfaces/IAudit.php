@@ -20,4 +20,14 @@ interface IAudit extends IEntity
         IArchivedAt|null $archivedAt = null,
         IDeletedAt|null $deletedAt = null
     ): self;
+
+    public function getCreatedAt(): ICreatedAt;
+
+    public function getUpdatedAt(): IUpdatedAt;
+
+    public function getUserId(): IUuid|null;
+
+    public function getArchivedAt(): IArchivedAt;
+
+    public function getDeletedAt(): IDeletedAt;
 }

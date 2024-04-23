@@ -40,6 +40,31 @@ final readonly class Audit implements IAudit
         ];
     }
 
+    public function getCreatedAt(): ICreatedAt
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): IUpdatedAt
+    {
+        return $this->updatedAt;
+    }
+
+    public function getUserId(): IUuid|null
+    {
+        return $this->userId;
+    }
+
+    public function getArchivedAt(): IArchivedAt
+    {
+        return $this->archivedAt;
+    }
+
+    public function getDeletedAt(): IDeletedAt
+    {
+        return $this->deletedAt;
+    }
+
     /**
      * @throws \Exception
      */
