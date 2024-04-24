@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Core\Entity\Audit;
+use App\Core\Enum\ActionEnum;
 use App\Core\GetContainer;
 use App\Core\ValueObject\Email;
 use App\Core\ValueObject\Password;
@@ -25,7 +26,7 @@ function main(): void
         'John Doe',
         Email::random(),
         Password::random(),
-        Audit::create(),
+        Audit::create(ActionEnum::CREATE),
     );
 
     /** @var IUserService $userService */

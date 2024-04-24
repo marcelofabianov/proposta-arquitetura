@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Core\Entity;
 
 use App\Core\Entity\Interfaces\IAudit;
+use App\Core\Enum\ActionEnum;
 use App\Core\ValueObject\ArchivedAt;
 use App\Core\ValueObject\CreatedAt;
 use App\Core\ValueObject\DeletedAt;
@@ -25,7 +26,8 @@ final readonly class Audit implements IAudit
         private IUpdatedAt $updatedAt,
         private IUuid|null $userId,
         private IArchivedAt $archivedAt,
-        private IDeletedAt $deletedAt
+        private IDeletedAt $deletedAt,
+        private ActionEnum $action,
     ) {
     }
 
@@ -37,6 +39,7 @@ final readonly class Audit implements IAudit
             'updatedAt' => $this->updatedAt->toString(),
             'archivedAt' => $this->archivedAt->getValue(),
             'deletedAt' => $this->deletedAt->getValue(),
+            'action' => $this->action->value,
         ];
     }
 
@@ -65,15 +68,21 @@ final readonly class Audit implements IAudit
         return $this->deletedAt;
     }
 
+    public function getAction(): ActionEnum
+    {
+        return $this->action;
+    }
+
     /**
      * @throws \Exception
      */
     public static function create(
+        ActionEnum|null $action = null,
         ICreatedAt|null $createdAt = null,
         IUpdatedAt|null $updatedAt = null,
         IUuid|null $userId = null,
         IArchivedAt|null $archivedAt = null,
-        IDeletedAt|null $deletedAt = null
+        IDeletedAt|null $deletedAt = null,
     ): IAudit {
         return new self(
             $createdAt ?? CreatedAt::random(),
@@ -81,6 +90,7 @@ final readonly class Audit implements IAudit
             $userId ?? null,
             $archivedAt ?? ArchivedAt::nullable(),
             $deletedAt ?? DeletedAt::nullable(),
+            $action ?? ActionEnum::CREATE,
         );
     }
 }

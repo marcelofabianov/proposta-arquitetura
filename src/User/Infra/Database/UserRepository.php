@@ -30,7 +30,7 @@ final readonly class UserRepository implements IUserRepository
             'archived_at' => $user->getAudit()->getArchivedAt()?->toString(),
         ]);
 
-        if (!$result) {
+        if (! $result) {
             throw new \RuntimeException('Failed to create user');
         }
     }

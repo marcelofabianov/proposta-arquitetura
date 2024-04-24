@@ -16,7 +16,7 @@ interface IConnection
 
     public function getSql(): Sql;
 
-    public function select(string$table): Select;
+    public function select(string $table): Select;
 
     public function insert(string $table, array $values): bool;
 }

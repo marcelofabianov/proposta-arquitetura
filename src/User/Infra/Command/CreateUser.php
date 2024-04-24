@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\User\Infra\Command;
 
 use App\Core\Entity\Audit;
+use App\Core\Enum\ActionEnum;
 use App\Core\GetContainer;
 use App\Core\ValueObject\Email;
 use App\Core\ValueObject\Password;
@@ -43,13 +44,12 @@ final class CreateUser extends Command
             name: $name,
             email: Email::create($email),
             password: Password::create($password),
-            audit: Audit::create(),
+            audit: Audit::create(ActionEnum::CREATE),
         );
 
         $containerBuilder = GetContainer::get();
         $container = $containerBuilder->build();
 
-        /** @var IUserService $userService */
         $userService = $container->get(IUserService::class);
         $user = $userService->createNewUser($dto);
 
