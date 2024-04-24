@@ -14,18 +14,7 @@ use App\Core\ValueObject\Interfaces\IUuid;
 
 interface IAudit extends IEntity
 {
-    public static function create(
-        IUuid $id,
-        IUuid $aggregateId,
-        ActionEnum $action,
-        int $versionIncrement = 0,
-        IUuid|null $userId = null,
-        IUuid|null $eventId = null,
-        ICreatedAt|null $createdAt = null,
-        IUpdatedAt|null $updatedAt = null,
-        IArchivedAt|null $archivedAt = null,
-        IDeletedAt|null $deletedAt = null,
-    ): self;
+    public static function create(ICreateAuditDto $dto): self;
 
     public function getId(): IUuid;
 

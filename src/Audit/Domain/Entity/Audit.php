@@ -5,17 +5,14 @@ declare(strict_types=1);
 namespace App\Audit\Domain\Entity;
 
 use App\Audit\Domain\Entity\Interfaces\IAudit;
+use App\Audit\Domain\Entity\Interfaces\ICreateAuditDto;
 use App\Audit\Domain\Enum\ActionEnum;
-use App\Core\ValueObject\ArchivedAt;
-use App\Core\ValueObject\CreatedAt;
-use App\Core\ValueObject\DeletedAt;
 use App\Core\ValueObject\Interfaces\IArchivedAt;
 use App\Core\ValueObject\Interfaces\ICreatedAt;
 use App\Core\ValueObject\Interfaces\IDeletedAt;
 use App\Core\ValueObject\Interfaces\IUpdatedAt;
 use App\Core\ValueObject\Interfaces\IUuid;
 use App\Core\ValueObject\ToStringJson;
-use App\Core\ValueObject\UpdatedAt;
 
 final readonly class Audit implements IAudit
 {
@@ -104,29 +101,19 @@ final readonly class Audit implements IAudit
     /**
      * @throws \Exception
      */
-    public static function create(
-        IUuid $id,
-        IUuid $aggregateId,
-        ActionEnum $action,
-        int $versionIncrement = 0,
-        IUuid|null $userId = null,
-        IUuid|null $eventId = null,
-        ICreatedAt|null $createdAt = null,
-        IUpdatedAt|null $updatedAt = null,
-        IArchivedAt|null $archivedAt = null,
-        IDeletedAt|null $deletedAt = null,
-    ): IAudit {
+    public static function create(ICreateAuditDto $dto): IAudit
+    {
         return new self(
-            $id,
-            $userId,
-            $aggregateId,
-            $eventId,
-            $versionIncrement,
-            $action,
-            $createdAt ?? CreatedAt::now(),
-            $updatedAt ?? UpdatedAt::now(),
-            $archivedAt ?? ArchivedAt::nullable(),
-            $deletedAt ?? DeletedAt::nullable(),
+            $dto->id,
+            $dto->userId,
+            $dto->aggregateId,
+            $dto->eventId,
+            $dto->versionIncrement,
+            $dto->action,
+            $dto->createdAt,
+            $dto->updatedAt,
+            $dto->archivedAt,
+            $dto->deletedAt,
         );
     }
 }
