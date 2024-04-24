@@ -12,6 +12,8 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 ## Tecnologias
 
 - RabbitMQ
+- Keycloak?
+- Swoole?
 - php 8.3
 - composer
 - pestphp
