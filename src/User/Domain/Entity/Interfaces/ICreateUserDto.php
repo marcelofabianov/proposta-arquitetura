@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\User\Domain\Entity\Interfaces;
 
-use App\Core\Entity\Interfaces\IAudit;
+use App\Audit\Domain\Entity\Interfaces\IAudit;
 use App\Core\IDto;
 use App\Core\ValueObject\Interfaces\IEmail;
 use App\Core\ValueObject\Interfaces\IPassword;

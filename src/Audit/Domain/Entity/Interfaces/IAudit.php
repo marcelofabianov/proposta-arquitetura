@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Entity\Interfaces;
+namespace App\Audit\Domain\Entity\Interfaces;
 
-use App\Core\Enum\ActionEnum;
+use App\Audit\Domain\Enum\ActionEnum;
 use App\Core\IEntity;
 use App\Core\ValueObject\Interfaces\IArchivedAt;
 use App\Core\ValueObject\Interfaces\ICreatedAt;
@@ -15,23 +15,35 @@ use App\Core\ValueObject\Interfaces\IUuid;
 interface IAudit extends IEntity
 {
     public static function create(
-        ActionEnum|null $action = null,
+        IUuid $id,
+        IUuid $aggregateId,
+        ActionEnum $action,
+        int $versionIncrement = 0,
+        IUuid|null $userId = null,
+        IUuid|null $eventId = null,
         ICreatedAt|null $createdAt = null,
         IUpdatedAt|null $updatedAt = null,
-        IUuid|null $userId = null,
         IArchivedAt|null $archivedAt = null,
         IDeletedAt|null $deletedAt = null,
     ): self;
+
+    public function getId(): IUuid;
+
+    public function getUserId(): IUuid|null;
+
+    public function getAggregateId(): IUuid|null;
+
+    public function getEventId(): IUuid|null;
+
+    public function getVersionIncrement(): int|null;
+
+    public function getAction(): ActionEnum;
 
     public function getCreatedAt(): ICreatedAt;
 
     public function getUpdatedAt(): IUpdatedAt;
 
-    public function getUserId(): IUuid|null;
-
     public function getArchivedAt(): IArchivedAt;
 
     public function getDeletedAt(): IDeletedAt;
-
-    public function getAction(): ActionEnum;
 }

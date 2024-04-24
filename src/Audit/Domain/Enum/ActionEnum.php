@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Enum;
+namespace App\Audit\Domain\Enum;
 
 enum ActionEnum: string
 {

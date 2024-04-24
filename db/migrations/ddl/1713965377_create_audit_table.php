@@ -8,7 +8,6 @@ use Laminas\Db\Sql\Ddl\Column\Integer;
 use Laminas\Db\Sql\Ddl\Column\Timestamp;
 use Laminas\Db\Sql\Ddl\Column\Varchar;
 use Laminas\Db\Sql\Ddl\Constraint\PrimaryKey;
-use Laminas\Db\Sql\Ddl\Constraint\UniqueKey;
 use Laminas\Db\Sql\Ddl\CreateTable;
 use Laminas\Db\Sql\Ddl\DropTable;
 
@@ -18,12 +17,14 @@ return new class() implements IMigration {
         $table = new CreateTable('audit');
         $table->addColumn(new Integer('id', true));
         $table->addColumn(new Varchar('user_id', 255, false));
-        $table->addColumn(new Varchar('referent', 255, false));
+        $table->addColumn(new Varchar('aggregate_id', 255, false));
+        $table->addColumn(new Varchar('event_id', 255));
         $table->addColumn(new Timestamp('created_at'));
         $table->addColumn(new Timestamp('updated_at'));
         $table->addColumn(new Timestamp('archived_at'));
         $table->addColumn(new Timestamp('deleted_at'));
         $table->addColumn(new Varchar('action', 15));
+        $table->addColumn(new Integer('version_increment', false));
 
         $table->addConstraint(new PrimaryKey('id'));
 

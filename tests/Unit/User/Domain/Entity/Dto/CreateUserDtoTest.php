@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Core\Entity\Audit;
+use App\Audit\Domain\Entity\Audit;
 use App\Core\ValueObject\Email;
 use App\Core\ValueObject\Password;
 use App\Core\ValueObject\Uuid;

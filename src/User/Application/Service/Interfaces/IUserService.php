@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\User\Application\Interfaces;
+namespace App\User\Application\Service\Interfaces;
 
 use App\Core\ValueObject\Interfaces\IEmail;
 use App\Core\ValueObject\Interfaces\IUuid;

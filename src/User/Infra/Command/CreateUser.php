@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\User\Infra\Command;
 
-use App\Core\Entity\Audit;
-use App\Core\Enum\ActionEnum;
+use App\Audit\Domain\Entity\Audit;
+use App\Audit\Domain\Enum\ActionEnum;
 use App\Core\GetContainer;
 use App\Core\ValueObject\Email;
 use App\Core\ValueObject\Password;
 use App\Core\ValueObject\Uuid;
-use App\User\Application\Interfaces\IUserService;
+use App\User\Application\Service\Interfaces\IUserService;
 use App\User\Domain\Entity\Dto\CreateUserDto;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -39,12 +39,17 @@ final class CreateUser extends Command
         $email = $input->getArgument('email');
         $password = $input->getArgument('password');
 
+        $userId = Uuid::random();
         $dto = new CreateUserDto(
-            id: Uuid::random(),
+            id: $userId,
             name: $name,
             email: Email::create($email),
             password: Password::create($password),
-            audit: Audit::create(ActionEnum::CREATE),
+            audit: Audit::create(
+                id: Uuid::random(),
+                aggregateId: $userId,
+                action: ActionEnum::CREATE,
+            ),
         );
 
         $containerBuilder = GetContainer::get();

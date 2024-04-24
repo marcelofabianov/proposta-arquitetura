@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\User\Application;
+namespace App\User\Application\Service;
 
 use App\Core\ValueObject\Interfaces\IEmail;
 use App\Core\ValueObject\Interfaces\IUuid;
-use App\User\Application\Interfaces\IUserService;
+use App\User\Application\Service\Interfaces\IUserService;
 use App\User\Domain\Entity\Interfaces\ICreateUserDto;
 use App\User\Domain\Entity\Interfaces\IUser;
 use App\User\Domain\UseCase\CreateNewUser\Interfaces\ICreateNewUserUseCase;

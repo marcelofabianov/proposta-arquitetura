@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Core\Entity\Audit;
-use App\Core\Entity\Interfaces\IAudit;
+use App\Audit\Domain\Entity\Audit;
+use App\Audit\Domain\Entity\Interfaces\IAudit;
 use App\Core\ValueObject\ArchivedAt;
 use App\Core\ValueObject\CreatedAt;
 use App\Core\ValueObject\DeletedAt;

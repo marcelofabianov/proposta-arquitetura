@@ -6,7 +6,6 @@ use Db\migrations\IMigration;
 use Laminas\Db\Adapter\AdapterInterface;
 use Laminas\Db\Sql\Ddl\Column\Boolean;
 use Laminas\Db\Sql\Ddl\Column\Integer;
-use Laminas\Db\Sql\Ddl\Column\Timestamp;
 use Laminas\Db\Sql\Ddl\Column\Varchar;
 use Laminas\Db\Sql\Ddl\Constraint\PrimaryKey;
 use Laminas\Db\Sql\Ddl\Constraint\UniqueKey;
