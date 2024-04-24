@@ -6,14 +6,12 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 - SOLID
 - Ports and Adapters
 - Clean Architecture
-
-## Requisitos
-
-- [Docker 24+](https://www.docker.com/get-started/)
-- [git](https://git-scm.com/)
+- Events
+- Message Bus
 
 ## Tecnologias
 
+- RabbitMQ
 - php 8.3
 - composer
 - pestphp
@@ -21,6 +19,11 @@ Um pequeno projeto para apresentar uma proposta de arquitetura utilizando concei
 - php-di
 - psalm
 - captainhook
+
+## Requisitos
+
+- [Docker 24+](https://www.docker.com/get-started/)
+- [git](https://git-scm.com/)
 
 ```
 src/
