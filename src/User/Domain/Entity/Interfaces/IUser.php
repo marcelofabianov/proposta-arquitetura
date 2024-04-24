@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\User\Domain\Entity\Interfaces;
 
-use App\Audit\Domain\Entity\Interfaces\IAudit;
 use App\Core\IEntity;
 use App\Core\ValueObject\Interfaces\IEmail;
 use App\Core\ValueObject\Interfaces\IPassword;
@@ -22,7 +21,7 @@ interface IUser extends IEntity
 
     public function getPassword(): IPassword;
 
-    public function getAudit(): IAudit;
+    public function isActive(): bool;
 
     public function changePassword(IPassword $password): void;
 }

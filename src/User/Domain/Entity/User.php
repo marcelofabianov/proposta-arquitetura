@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\User\Domain\Entity;
 
-use App\Audit\Domain\Entity\Interfaces\IAudit;
-use App\Core\Exceptions\EntityException;
 use App\Core\ValueObject\Interfaces\IEmail;
 use App\Core\ValueObject\Interfaces\IPassword;
 use App\Core\ValueObject\Interfaces\IUuid;
@@ -22,7 +20,7 @@ final class User implements IUser
         private readonly string $name,
         private readonly IEmail $email,
         private IPassword $password,
-        private readonly IAudit $audit
+        private readonly bool $active
     ) {
     }
 
@@ -33,7 +31,7 @@ final class User implements IUser
             'name' => $this->name,
             'email' => $this->email->toString(),
             'password' => $this->password->toString(),
-            'audit' => $this->audit->toArray(),
+            'active' => $this->active,
         ];
     }
 
@@ -57,9 +55,9 @@ final class User implements IUser
         return $this->password;
     }
 
-    public function getAudit(): IAudit
+    public function isActive(): bool
     {
-        return $this->audit;
+        return $this->active;
     }
 
     public function changePassword(IPassword $password): void
@@ -67,21 +65,14 @@ final class User implements IUser
         $this->password = $password;
     }
 
-    /**
-     * @throws \App\Core\Exceptions\Interfaces\IEntityException|\Exception
-     */
     public static function create(ICreateUserDto $dto): IUser
     {
-        try {
-            return new self(
-                $dto->id,
-                $dto->name,
-                $dto->email,
-                $dto->password,
-                $dto->audit
-            );
-        } catch (EntityException|\Exception $exception) {
-            throw EntityException::invalidData(self::class, $exception->getMessage());
-        }
+        return new self(
+            $dto->id,
+            $dto->name,
+            $dto->email,
+            $dto->password,
+            $dto->active
+        );
     }
 }

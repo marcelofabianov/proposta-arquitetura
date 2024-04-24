@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\User\Domain\Entity\Interfaces;
 
-use App\Audit\Domain\Entity\Interfaces\IAudit;
 use App\Core\IDto;
 use App\Core\ValueObject\Interfaces\IEmail;
 use App\Core\ValueObject\Interfaces\IPassword;
@@ -12,19 +11,20 @@ use App\Core\ValueObject\Interfaces\IUuid;
 
 /**
  * Interface ICreateUserDto
+ *
  * @property-read IUuid $id
  * @property-read string $name
  * @property-read IEmail $email
  * @property-read IPassword $password
- * @property-read IAudit $audit
+ * @property-read bool $active
  */
 interface ICreateUserDto extends IDto
 {
     public function __construct(
-        IUuid $id,
         string $name,
         IEmail $email,
         IPassword $password,
-        IAudit $audit
+        IUuid|null $id = null,
+        bool $active = false,
     );
 }
